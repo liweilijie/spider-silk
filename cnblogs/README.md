@@ -1,16 +1,17 @@
 # cnblogs
-crawl的时候需要的技术
+
+`crawl`的时候需要的技术
 
 
 
 ## xpath
 
-xpath语法：
+xpath 语法：
 
-article: 选择所有article元素的所有子节点
-/article: 选取根元素article
-article/a 选择所有属于article的子元素的a元素
-//div 选择所有div子元素,无论出现在文档的任何地方
+- `article`: 选择所有article元素的所有子节点
+- `/article`: 选取根元素article
+- `article/a`: 选择所有属于article的子元素的a元素
+- `//div` 选择所有div子元素,无论出现在文档的任何地方
 article//div 选取所有属于article元素的后代的div元素，不管它出现在article之下的任何位置 
 //@class 选取所有名为class的属性
 
@@ -59,3 +60,10 @@ sel = Selector(text=response.text)
 sel.css('div#news_list h2 a::attr(href)').extract()
 sel.xpath('//div[@id="news_list"]//h2/a/@href').extract_first()
 ```
+
+
+## undetected-chromedrvier
+
+[https://github.com/ultrafunkamsterdam/undetected-chromedriver](https://github.com/ultrafunkamsterdam/undetected-chromedriver)
+
+防止chromedriver被识别的
