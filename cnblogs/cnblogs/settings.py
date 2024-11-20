@@ -6,6 +6,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import os.path
 
 BOT_NAME = "cnblogs"
 
@@ -64,6 +65,7 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    "cnblogs.pipelines.CnblogsPipeline": 300,
+   "cnblogs.pipelines.ArticleImagePipeline": 1
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -91,3 +93,10 @@ ITEM_PIPELINES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+# 下载时候对应的src是哪个字段的值
+IMAGES_URLS_FIELD = "front_image_url"
+
+# 下载的路径到哪儿
+project_dir = os.path.dirname(os.path.abspath(__file__))
+IMAGES_STORE = project_dir
