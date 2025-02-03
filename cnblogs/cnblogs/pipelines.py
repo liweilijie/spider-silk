@@ -22,3 +22,7 @@ class ArticleImagePipeline(ImagesPipeline):
             item["front_image_path"] = image_file_path
 
         return item
+
+
+class JsonWithEncodingPipeline(object):
+    # 自定义json文件的导出
